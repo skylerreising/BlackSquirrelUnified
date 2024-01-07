@@ -224,45 +224,7 @@ document.getElementById('downloadUnified100MeterDashPDF').addEventListener('clic
     html2canvas(document.getElementById('100MeterDashResultsTable'), {
         scale: 0.75, // Adjust the scale as needed
         useCORS: true, // Helps with images if they are present in the table
-		onclone: function(documentClone) {
-			// Find and modify the headers in the cloned document
-			var clonedHeaders = documentClone.querySelectorAll('#100MeterDashResultsTable th');
-			clonedHeaders.forEach(function(header) {
-				header.style.position = 'static';  // Reset position
-				header.style.zIndex = 'auto';      // Reset z-index
-			});
-
-			// Remove transforms from the table and its child elements
-			// var elementsToRemoveTransform = clonedTable.querySelectorAll('*');
-			// elementsToRemoveTransform.forEach(function(el) {
-			// 	el.style.transform = 'none';
-			// });
-
-			// Apply other necessary adjustments to the table
-			// var clonedTableBody = documentClone.querySelector('#100MeterDashResultsTable tbody');
-			// if (clonedTableBody) {
-			// 	clonedTableBody.style.overflow = 'visible';
-			// 	clonedTableBody.style.height = 'auto';
-			// }
-
-			// Apply styles to all table rows
-			// var rows = clonedTable.querySelectorAll('tbody tr');
-			// rows.forEach(function(row, index) {
-			// 	// Apply border style to all rows
-			// 	row.style.border = 'solid 1px rgba(255, 255, 255, 0.15)';
-			// 	row.style.borderLeft = '0';
-			// 	row.style.borderRight = '0';
-	
-			// 	// Apply zebra striping effect
-			// 	if ((index + 1) % 2 === 0) {
-			// 		// For even rows, use your existing style (if any)
-			// 		// Example: row.style.backgroundColor = 'your_even_row_color';
-			// 	} else {
-			// 		// For odd rows (nth-child(2n + 1))
-			// 		row.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-			// 	}
-			// });
-		},
+		
     }).then(canvas => {
         // Create a new jsPDF instance
         var pdf = new jspdf.jsPDF({
