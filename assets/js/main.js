@@ -188,3 +188,23 @@
 			});
 
 })(jQuery);
+
+//To sort the 100 Meter Dash Table
+new Tablesort(document.getElementById("100MeterDashResultsTable"));
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Tablesort
+    new Tablesort(document.getElementById('100MeterDashResultsTable'));
+
+    Tablesort.extend('number', function(item) {
+        // Return true for items that are numeric
+        return item.match(/^[\d.]+$/);
+    }, function(a, b) {
+        // Extract numbers from the Place column and convert to integer
+        var numA = parseInt(a, 10);
+        var numB = parseInt(b, 10);
+
+        // Compare the numbers for sorting
+        return numA - numB;
+    });
+});
