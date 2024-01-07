@@ -192,19 +192,20 @@
 //To sort the 100 Meter Dash Table
 new Tablesort(document.getElementById("100MeterDashResultsTable"));
 
+// main.js
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Tablesort
     new Tablesort(document.getElementById('100MeterDashResultsTable'));
 
     Tablesort.extend('number', function(item) {
-        // Return true for items that are numeric
-        return item.match(/^[\d.]+$/);
+        // Return true for items that are integers or decimal numbers
+        return item.match(/^[\d.]+$/); // Matches integers and decimal numbers
     }, function(a, b) {
-        // Extract numbers from the Place column and convert to integer
-        var numA = parseInt(a, 10);
-        var numB = parseInt(b, 10);
+        // Convert to float and compare
+        var numA = parseFloat(a);
+        var numB = parseFloat(b);
 
-        // Compare the numbers for sorting
         return numA - numB;
     });
 });
+
